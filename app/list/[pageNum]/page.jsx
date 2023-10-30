@@ -1,4 +1,5 @@
 import LoadingPage from "@/app/components/LoadingPage";
+import Pagination from "@/app/components/Pagination";
 import UserList from "@/app/components/UserList";
 import { Suspense } from "react";
 
@@ -16,13 +17,16 @@ async function UserPage({ params }) {
   const userData = await getUserData(params.pageNum);
 
   return (
-    <Suspense fallback={<LoadingPage />}>
-      <div className="card-container">
-        {userData.data.map((data) => (
-          <UserList key={data.id} list={data} />
-        ))}
-      </div>
-    </Suspense>
+    <>
+      <Suspense fallback={<LoadingPage />}>
+        <div className="card-container">
+          {userData.data.map((data) => (
+            <UserList key={data.id} list={data} />
+          ))}
+        </div>
+      </Suspense>
+      <Pagination />
+    </>
   );
 }
 export default UserPage;

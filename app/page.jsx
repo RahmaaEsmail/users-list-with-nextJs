@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import UserList from "./components/UserList";
 import LoadingPage from "./components/LoadingPage";
+import Pagination from "./components/Pagination";
 
 async function getUserData() {
   const response = await fetch(`https://reqres.in/api/users`, {
@@ -24,6 +25,7 @@ async function HomePage() {
           ))}
         </div>
       </Suspense>
+      <Pagination />
     </>
   );
 }

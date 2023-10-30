@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} p-5 w-full`}>
         <h2 className="text-4xl font-light">Users List</h2>
         {children}
-        <Pagination />
       </body>
     </html>
   );
